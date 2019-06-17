@@ -1,0 +1,106 @@
+
+//HELPERS
+
+@mixin horizontal(){
+	display: flex;
+    flex-wrap: wrap;
+	padding: 0;
+	margin: 0;
+
+	li{
+		list-style: none;
+	}
+}
+
+@mixin vertical(){
+
+	padding: 0;
+    margin: 0;
+    li{
+		list-style: none;
+	}
+
+}
+
+@mixin perfect_centered(){
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+
+@mixin perfect_vertical(){
+	align-self: center;
+}
+
+@mixin perfect_right(){
+	display: grid;
+	align-self: center;
+	justify-content: end;
+}
+
+
+$corner_presets : (
+	top: 5px 5px 0px 0px,
+	bottom: 0px 0px 5px 5px,
+	bottom_left: 0px 0px 0px 5px,
+	bottom_right: 0px 0px 5px 0px,
+	top_left: 5px 0px 0px 0px,
+	top_right: 0px 5px 0px 0px,
+	left: 5px 0px 0px 5px,
+	right: 0px 5px 5px 0px,
+	round: 50%,
+	all: 5px
+);
+
+@mixin corners($corner_preset){
+	border-radius: map-get($corner_presets, $corner_preset);
+}
+
+@mixin same_color($color){
+	color: $color;
+	a{
+		color: $color;
+	}
+}
+
+@mixin shadow_back(){
+	position: absolute;
+	width: 100%;
+	height: 90%;
+	bottom: 0;
+	background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0) 100%);
+	z-index: 10;
+}
+
+
+@mixin tag(){
+    border: 1px solid #eee;
+    @include corners(all);
+    color: #555;
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: .5rem;
+    margin-right: 3px;
+    padding: .5rem 1rem;
+    text-transform: uppercase;
+}
+
+@mixin btn($bg_color, $color_text, $padding_vertical, $padding_horizontal, $font_size){
+	background-color: $bg_color;
+	color: $color_text;
+	font-size: $font_size;
+	padding: $padding_vertical $padding_horizontal;
+	@include corners(all);
+}
+
+@mixin fit_cover(){
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+}
+
+
+

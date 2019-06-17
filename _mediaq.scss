@@ -1,0 +1,77 @@
+//@MIXINS
+
+$breakpoints : (
+	small: 40em,//640px
+	medium: 63.9375em, //1022px
+	large: 64em,//1024px
+	xl: 81em //1296
+);
+
+@mixin mq($mesure){
+
+	@if $mesure =="small"{
+
+		@media screen and (max-width: 600px) {
+			@content;
+		}
+
+	}@else if $mesure == "medium"{//Medium and up
+		@media
+		only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 700px),
+		only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 700px),
+		only screen and (-o-min-device-pixel-ratio: 2/1) and (min-width: 700px),
+		only screen and (min-device-pixel-ratio: 2) and (min-width: 700px),
+		only screen and (min-resolution: 192dpi) and (min-width: 700px),
+		only screen and (min-resolution: 2dppx)  and (min-width: 700px) { 
+			@content;
+		}
+
+	}@else if $mesure == "medium_up"{//Medium and up
+		@media only screen and (min-width: 63.9375em) {
+			@content;
+		}
+
+	}@else if $mesure == "large"{//Large and up
+		@media only screen and (min-width: 1300px) {
+			@content;
+		}
+	}
+	/*
+	@media screen and ( min-width: map-get($breakpoints, $breakpoint) ){
+		@content;
+	}
+	*/
+}
+
+$container_mesures : (
+	boxed: 75%,
+	wide: 90%,
+	extrawide: 95%,
+	all: 99%
+);
+
+@mixin containers($container_mesure){
+
+	width: map-get($container_mesures, $container_mesure);
+	margin: 0 auto;
+}
+
+@mixin display_grid_dual($par1, $par2, $gap){
+	display: grid;
+	grid-template-columns: $par1 $par2;
+	grid-gap: $gap;
+}
+
+@mixin display_grid_fr($par1, $par2, $gap){
+	display: grid;
+	grid-template-columns: repeat($par1, $par2);
+	grid-gap: $gap;
+
+}
+
+@mixin display_grid_explicit($par1, $par2, $par3, $par4, $gap){
+	display: grid;
+	grid-template-columns: $par1 $par2 $par3 $par4;
+	grid-gap: $gap;
+
+}

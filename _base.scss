@@ -1,0 +1,90 @@
+:root {
+	
+	--color_naranja: #fd614a; //Azul
+	--color_celeste: #2ba6cb; //Celeste
+	--color_gris_suave: #e6e3e3; //Gris suave
+	--color_amarillo: #ffae00;
+	
+	--color_back: #eeeeeed1;
+
+	--color_facebook: #3b5998;
+	--color_twitter: #1da1f2;
+	--color_youtube: #ff0000;
+	--color_instagram: #c32aa3;
+	--color_linkedin: #007bb5;
+	--color_google: #4285f4;
+	--color_whatsapp: #25d366;
+	--color_spotify: #1ed760;
+	--color_github: #6e5494;
+}
+
+$prop: 1.5rem; 
+
+
+//MEDIA QUERYS
+/* Small only */
+//@media screen and (max-width: 39.9375em) {}
+/* Medium and up */
+//@media screen and (min-width: 40em) {}
+/* Medium only */
+//@media screen and (min-width: 40em) and (max-width: 63.9375em) {}
+/* Large and up */
+//@media screen and (min-width: 64em) {}
+/* Large only */
+//@media screen and (min-width: 64em) and (max-width: 74.9375em) {}
+
+//FUENTES
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800|Montserrat:400,800');
+
+@font-face {
+	font-family: SnyderSpeedBrush;
+	src: url(SnyderSpeedBrush.ttf);
+}
+
+//BASE
+
+*{
+    box-sizing: border-box;
+}
+
+a{
+	text-decoration: none;
+}
+
+body{
+	margin: 0;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+	color: #3d3d3d;
+    background-color: var(--color_back);
+}
+
+h1, h2, h3, h4{
+	margin-bottom: .5rem;
+	margin-top: 0;
+}
+
+.img_responsive{
+	width: 100%;
+}
+
+.fit_cover{
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+}
+
+
+// Shows elements softly ------
+.show_soft{
+	display: block;
+    visibility: visible;
+    opacity: 1;
+    animation: fadein 1s;
+}
+
+@keyframes fadein {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
